@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Комикс</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <style>
+            input[name="raz"] {display: none;}
+            
+            .gallery {position: relative; padding-top: 45%; margin: 3em 2.3em 4.5em; background: no-repeat 50% 50%; background-size: 100% 100%;} 
+            
+            .gallery label {display: inline-block; width: 20%; height: 4em; margin-bottom: -4.5em; background: no-repeat 50% 50%; background-size: 99% 97%; opacity: .5; cursor: pointer;} 
+            .gallery label:hover {opacity: .85;} 
+            #raz1:checked ~ .gallery [for="raz1"], 
+            #raz2:checked ~ .gallery [for="raz2"],
+            #raz3:checked ~ .gallery [for="raz3"],
+            #raz4:checked ~ .gallery [for="raz4"],
+            #raz5:checked ~ .gallery [for="raz5"],
+            #raz6:checked ~ .gallery [for="raz6"],
+            #raz7:checked ~ .gallery [for="raz7"], 
+            #raz8:checked ~ .gallery [for="raz8"],
+            #raz9:checked ~ .gallery [for="raz9"],
+            #raz10:checked ~ .gallery [for="raz10"],
+            #raz11:checked ~ .gallery [for="raz11"],
+            #raz12:checked ~ .gallery [for="raz12"] {opacity: 1; cursor: default; background-size: 70% 70%;}
+            
+            #raz1:checked ~ .gallery, .gallery [for="raz1"] {background-image: url(img/img1.jpeg);}
+            #raz2:checked ~ .gallery, .gallery [for="raz2"] {background-image: url(img/img2.jpeg);}
+            #raz3:checked ~ .gallery, .gallery [for="raz3"] {background-image: url(img/img3.jpeg);}
+            #raz4:checked ~ .gallery, .gallery [for="raz4"] {background-image: url(img/img4.jpeg);}
+            #raz5:checked ~ .gallery, .gallery [for="raz5"] {background-image: url(img/img5.jpeg);}
+            #raz6:checked ~ .gallery, .gallery [for="raz6"] {background-image: url(img/img6.jpeg);}
+            #raz7:checked ~ .gallery, .gallery [for="raz7"] {background-image: url(img/img7.jpeg);}
+            #raz8:checked ~ .gallery, .gallery [for="raz8"] {background-image: url(img/img8.jpeg);}
+            #raz9:checked ~ .gallery, .gallery [for="raz9"] {background-image: url(img/img9.jpeg);}
+            #raz10:checked ~ .gallery, .gallery [for="raz10"] {background-image: url(img/img10.jpeg);}
+            #raz11:checked ~ .gallery, .gallery [for="raz11"] {background-image: url(img/img11.jpeg);}
+            #raz12:checked ~ .gallery, .gallery [for="raz12"] {background-image: url(img/img12.jpeg);}
+            
+            .gallery label:before { 
+             position: absolute; bottom: -4em; border-width: 2em 1em; border-style: solid;}
+            #raz1:checked ~ .gallery [for="raz2"]:before, 
+            #raz2:checked ~ .gallery [for="raz3"]:before,
+            #raz3:checked ~ .gallery [for="raz4"]:before,
+            #raz4:checked ~ .gallery [for="raz5"]:before,
+            #raz5:checked ~ .gallery [for="raz6"]:before,
+            #raz6:checked ~ .gallery [for="raz7"]:before,
+            #raz7:checked ~ .gallery [for="raz8"]:before,
+            #raz8:checked ~ .gallery [for="raz9"]:before,
+            #raz9:checked ~ .gallery [for="raz10"]:before,
+            #raz10:checked ~ .gallery [for="raz11"]:before,
+            #raz11:checked ~ .gallery [for="raz12"]:before,
+            #raz12:checked ~ .gallery [for="raz1"]:before {content: ""; right: -2.3em; border-color: transparent transparent transparent #686868; box-shadow: -2px 0 0 -1px #000;}
+            #raz1:checked ~ .gallery [for="raz12"]:before,
+            #raz2:checked ~ .gallery [for="raz1"]:before,
+            #raz3:checked ~ .gallery [for="raz2"]:before,
+            #raz4:checked ~ .gallery [for="raz3"]:before,
+            #raz5:checked ~ .gallery [for="raz4"]:before,
+            #raz6:checked ~ .gallery [for="raz5"]:before,
+            #raz7:checked ~ .gallery [for="raz6"]:before,
+            #raz8:checked ~ .gallery [for="raz7"]:before,
+            #raz9:checked ~ .gallery [for="raz8"]:before,
+            #raz10:checked ~ .gallery [for="raz9"]:before,
+            #raz11:checked ~ .gallery [for="raz10"]:before,
+            #raz12:checked ~ .gallery [for="raz11"]:before {content: ""; left: -2.3em; border-color: transparent #686868 transparent transparent; box-shadow: 2px 0 0 -1px #000;}
+            
+            #raz1:checked ~ .gallery [for="raz1"]:after,
+            #raz2:checked ~ .gallery [for="raz2"]:after,
+            #raz3:checked ~ .gallery [for="raz3"]:after,
+            #raz4:checked ~ .gallery [for="raz4"]:after,
+            #raz5:checked ~ .gallery [for="raz5"]:after,
+            #raz6:checked ~ .gallery [for="raz6"]:after,
+            #raz7:checked ~ .gallery [for="raz7"]:after,
+            #raz8:checked ~ .gallery [for="raz8"]:after,
+            #raz9:checked ~ .gallery [for="raz9"]:after,
+            #raz10:checked ~ .gallery [for="raz10"]:after,
+            #raz11:checked ~ .gallery [for="raz11"]:after,
+            #raz12:checked ~ .gallery [for="raz12"]:after {content: attr(title); position: absolute; top: -2em; left: 0; width: 100%; text-align: center; font-weight: 900;}
+            
+            #raz1:checked ~ .gallery label:nth-of-type(n+6), 
+            #raz2:checked ~ .gallery label:nth-of-type(n+7),
+            #raz2:checked ~ .gallery label:nth-of-type(-n+1),
+            #raz3:checked ~ .gallery label:nth-of-type(n+8),
+            #raz3:checked ~ .gallery label:nth-of-type(-n+2),
+            #raz4:checked ~ .gallery label:nth-of-type(n+9),
+            #raz4:checked ~ .gallery label:nth-of-type(-n+3),
+            #raz5:checked ~ .gallery label:nth-of-type(n+10),
+            #raz5:checked ~ .gallery label:nth-of-type(-n+4),
+            #raz6:checked ~ .gallery label:nth-of-type(n+11),
+            #raz6:checked ~ .gallery label:nth-of-type(-n+5),
+            #raz7:checked ~ .gallery label:nth-of-type(n+12),
+            #raz7:checked ~ .gallery label:nth-of-type(-n+6),
+            #raz8:checked ~ .gallery label:nth-of-type(n+13),
+            #raz8:checked ~ .gallery label:nth-of-type(-n+7),
+            #raz9:checked ~ .gallery label:nth-of-type(n+14),
+            #raz9:checked ~ .gallery label:nth-of-type(-n+8),
+            #raz10:checked ~ .gallery label:nth-of-type(n+15),
+            #raz10:checked ~ .gallery label:nth-of-type(-n+9),
+            #raz11:checked ~ .gallery label:nth-of-type(n+16),
+            #raz11:checked ~ .gallery label:nth-of-type(-n+10),
+            #raz12:checked ~ .gallery label:nth-of-type(-n+11) {width: 0%;}
+            </style>
+            
+            <input type="radio" checked="checked" name="raz" id="raz1"/><input type="radio" name="raz" id="raz2"/>
+            <input type="radio" name="raz" id="raz3"/><input type="radio" name="raz" id="raz4"/><input type="radio" name="raz" id="raz5"/>
+            <input type="radio" name="raz" id="raz6"/><input type="radio" name="raz" id="raz7"/><input type="radio" name="raz" id="raz8"/>
+            <input type="radio" name="raz" id="raz9"/><input type="radio" name="raz" id="raz10"/><input type="radio" name="raz" id="raz11"/>
+            <input type="radio" name="raz" id="raz12"/>
+            <h1 class="text-center">План действий при пожаре</h1>
+        
+            <div class="gallery"><label for="raz11" ></label><label for="raz12" ></label><label for="raz1" ></label><label for="raz2" >
+            </label><label for="raz3" ></label><label for="raz4" ></label><label for="raz5" ></label><label for="raz6" >
+            </label><label for="raz7" ></label><label for="raz8" ></label><label for="raz9" ></label><label for="raz10" >
+            </label><label for="raz11" ></label><label for="raz12" ></label><label for="raz1" ></label><label for="raz2" ></label></div>
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
